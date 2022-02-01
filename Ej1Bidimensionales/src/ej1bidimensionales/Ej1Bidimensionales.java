@@ -14,7 +14,9 @@ public class Ej1Bidimensionales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Concesionario miEmpresa=new Concesionario(2);
+        miEmpresa.crear();
+        miEmpresa.pedirDatos();
     }
     
 }
