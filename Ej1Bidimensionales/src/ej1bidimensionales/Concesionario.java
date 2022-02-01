@@ -34,35 +34,62 @@ public class Concesionario {
         inicializar();
         modelos = new Modelo[15];
     }
-     public Concesionario(int numeroModelos) {
+
+    public Concesionario(int numeroModelos) {
         inicializar();
         modelos = new Modelo[numeroModelos];
     }
-     
-public void crear(){
-    for( int pos=0;pos< modelos.length; pos++)
-    {
-        modelos[pos]=new Modelo();
+
+    public void crear() {
+        for (int pos = 0; pos < modelos.length; pos++) {
+            modelos[pos] = new Modelo();
+        }
     }
-}
-    public void pedirDatos(){
+
+    public void pedirDatos() {
         String nombre;
         int tipo;
-        for( int nmodelo=0; nmodelo<modelos.length; nmodelo++)
-        {
-            nombre= Textos.pedirString("Nombre del modelo: ");
+        for (int nmodelo = 0; nmodelo < modelos.length; nmodelo++) {
+            nombre = Textos.pedirString("Nombre del modelo: ");
             menu();
-            tipo=Numero.pedirNumero("Introduce un tipo:", 
-                    0, tipos.length-1);
+            tipo = Numero.pedirNumero("Introduce un tipo:",
+                    0, tipos.length - 1);
             modelos[nmodelo].grabar(nombre, tipo);
         }
     }
 
     private void menu() {
-      for( int tipo=0; tipo<tipos.length; tipo++)
-      {
-          System.out.println(tipo+ "\t"+tipos[tipo]);
-      }
+        for (int tipo = 0; tipo < tipos.length; tipo++) {
+            System.out.println(tipo + "\t" + tipos[tipo]);
+        }
+    }
+
+    public void pedirVentasMes() {
+        String[] meses = {"Enero",
+            "Febrero", "Marzo", "Abril",
+            "Mayo", "Junio"};
+        //float[] ventas;
+         
+        float importe;
+        for (int nModelo = 0; nModelo < modelos.length;
+                nModelo++) {
+           //ventas=new float[6];
+            System.out.println("MODELO:"+modelos[nModelo].getNombre());
+            System.out.println("Ventas");
+            for ( int mes=0; 
+                    mes<modelos[nModelo].getVentas().length;
+                    mes++)
+            {
+                importe= Numero.pedirNumeroReal(
+                      meses[mes]+"\t",0);
+               modelos[nModelo].setUnaVenta(importe, mes);
+                 // ventas[mes]= Numero.pedirNumeroReal(
+                   //    meses[mes]+"\t",0);
+                
+            }
+           // modelos[nModelo].setVentas(ventas);
+            
+        }
     }
 
 }

@@ -17,6 +17,7 @@ public class Ej1Bidimensionales {
         Concesionario miEmpresa=new Concesionario(2);
         miEmpresa.crear();
         miEmpresa.pedirDatos();
+        miEmpresa.pedirVentasMes();
     }
     
 }

@@ -14,7 +14,7 @@ public class Modelo {
     private float[]ventas;
 
     public Modelo() {
-        ventas=new float[6];
+        ventas=new float[2];
     }
 
     public Modelo(String nombre, int tipo) {
