@@ -14,10 +14,11 @@ public class Ej1Bidimensionales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Concesionario miEmpresa=new Concesionario(2);
+        Concesionario miEmpresa=new Concesionario(3);
         miEmpresa.crear();
         miEmpresa.pedirDatos();
         miEmpresa.pedirVentasMes();
+        miEmpresa.informe();
     }
     
 }
