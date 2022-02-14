@@ -4,6 +4,8 @@
  */
 package ej4bidi;
 
+import numeros.Numero;
+
 /**
  *
  * @author dam
@@ -14,7 +16,14 @@ public class Ej4Bidi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Empresa empresa;
+       int nempleados;
+       nempleados=Numero.pedirNumero
+        ("Introduce el número de empleados", 0);
+       empresa= new Empresa(nempleados);
+       empresa.pedirDatosEmpleado();
+       empresa.pedirHijosTrabajador();
+       
     }
     
 }
