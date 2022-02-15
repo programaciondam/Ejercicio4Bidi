@@ -68,14 +68,65 @@ public class Empresa {
 
     public void pedirHijosTrabajador() {
         int total;
+        Fecha fnac;
+        boolean ingresos;
         for (int nemple = 0; nemple < empleados.length; nemple++) {
             if (empleados[nemple].getHijos() != null) {
                 System.out.println(empleados[nemple].getNombre());
                 total = empleados[nemple].getHijos().length;
                 for (int nh = 0; nh < total; nh++) {
-
+                    System.out.println("hijo "+(nh+1));
+                    fnac=Textos.pedirFecha("Fecha de nacimiento");
+                    ingresos=Textos.pedirBoolean("¿Tienes ingresos superiors a 8000Euros?");
+                    empleados[nemple].setUnHijo(new Hijo(fnac,ingresos), nh);
+                    //empleados[nemple].setUnHijo(fnac,ingresos, nh);
+                    
+                    
                 }
             }
         }
+    }
+    public void informe(){
+        int fila;
+        float irpf2;
+        cabecera();
+        for(int pos=0; pos<empleados.length; pos++){
+            fila=empleados[pos].NhijosComputables();
+            System.out.print(empleados[pos].getNombre());
+            System.out.print("\t"+empleados[pos].getFechaAlta().fechaCompleta());
+            System.out.print("\t"+fila);
+            if(fila>=irpf.length){
+                fila=irpf.length-1;
+            }
+            irpf2=irpf[fila][calcularColumna
+        (categorias[empleados[pos].getCategoria()].getSueldoBase())];
+            System.out.print("\t"+categorias[empleados[pos]
+                    .getCategoria()].getDenominacion());
+            System.out.print("\t"+categorias[empleados[pos]
+                    .getCategoria()].getSueldoBase());
+            System.out.print("\t"+irpf2);
+            float neto=categorias[empleados[pos]
+                    .getCategoria()].getSueldoBase()*(1-irpf2);
+            System.out.println("\t"+neto);
+        }
+    }
+
+    private void cabecera() {
+        System.out.println("\t\t INFORME ANUAL");
+        System.out.println("Nombre");
+        System.out.print("\t Fecha de alta");
+        System.out.print("\t N Hijos");
+        System.out.print("\t Categoría");
+        System.out.print("\t Sueldo Base");
+        System.out.print("\t IRPF");
+        System.out.println("\t Sueldo Neto");
+    }
+    
+    private int calcularColumna(float sueldo){
+        int pos=0;
+        while(limites[pos]<sueldo){
+            pos++;
+        }
+        return pos;
     }
 }

@@ -23,7 +23,7 @@ public class Ej4Bidi {
        empresa= new Empresa(nempleados);
        empresa.pedirDatosEmpleado();
        empresa.pedirHijosTrabajador();
-       
+       empresa.informe();
     }
     
 }
